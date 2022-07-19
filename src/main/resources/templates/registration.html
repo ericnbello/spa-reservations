@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Registration</title>
+<!--    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />-->
+<!--    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>-->
+<!--    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>-->
+</head>
+<body>
+    <main layout:fragment="content">
+          <div class="w-full p-6 flex flex-col items-center justify-center bg-gradient-to-tl from-orange-200">
+              <h1 th:text="#{register.headline}" class="max-w-lg xl:max-w-2xl mx-auto grow text-4xl md:text-5xl font-medium mb-8 leading-normal text-black text-center" />
+              <p th:utext="#{register.text}" class="mb-4" />
+
+              <div class="flex items-center justify-center my-12">
+                  <div class="w-full bg-white dark:bg-gray-800 shadow rounded py-12 lg:px-28 px-8">
+                      <p th:utext="#{register.form-text}" class="md:text-2xl text-xl font-bold leading-7 text-center text-gray-700 dark:text-white" />
+                      <form action="/" th:object="${user}" method="POST" enctype="utf8">
+                          <div class="items-center mt-12">
+                              <div class="flex flex-col">
+                                  <label class="text-base font-semibold leading-none text-gray-800 dark:text-white">Name</label>
+                                  <input th:field="*{fullName}" class="text-base leading-none text-gray-900 p-3 focus:outline-none focus:border-indigo-700 mt-4 bg-gray-100 border rounded border-gray-200 placeholder-gray-100" placeholder="Please input  name" />
+                                  <p th:each="error: ${#fields.errors('fullName')}"
+                                     th:text="${error}">Validation error</p>
+                              </div>
+                              <div class="flex flex-col mt-4">
+                                  <label class="text-base font-semibold leading-none text-gray-800 dark:text-white">Username</label>
+                                  <input th:field="*{username}" class="text-base leading-none text-gray-900 p-3 focus:outline-none focus:border-indigo-700 mt-4 bg-gray-100 border rounded border-gray-200 placeholder-gray-100" placeholder="Please input username" />
+                                  <p th:each="error: ${#fields.errors('username')}"
+                                     th:text="${error}">Validation error</p>
+                              </div>
+                              <div class="flex flex-col mt-4">
+                                  <label class="text-base font-semibold leading-none text-gray-800 dark:text-white">Email Address</label>
+                                  <input type="email" th:field="*{email}" class="text-base leading-none text-gray-900 p-3 focus:outline-none focus:border-indigo-700 mt-4 bg-gray-100 border rounded border-gray-200 placeholder-gray-100" placeholder="Please input email address" />
+                                  <p th:each="error : ${#fields.errors('email')}"
+                                     th:text="${error}">Validation error</p>
+                              </div>
+                              <div class="flex flex-col mt-4">
+                                  <label class="text-base font-semibold leading-none text-gray-800 dark:text-white">Password</label>
+                                  <input type="password" th:field="*{passwordHash}" class="text-base leading-none text-gray-900 p-3 focus:outline-none focus:border-indigo-700 mt-4 bg-gray-100 border rounded border-gray-200 placeholder-gray-100" placeholder="Please input password" />
+                                  <p th:each="error : ${#fields.errors('passwordHash')}"
+                                     th:text="${error}">Validation error</p>
+                              </div>
+                          </div>
+                          <p class="text-xs leading-3 text-gray-600 dark:text-gray-200 mt-4">By clicking submit you agree to our terms of service, privacy policy and how we use data as stated</p>
+                          <div class="flex items-center justify-center w-full">
+                              <button type="submit" class="mt-9 text-base font-semibold leading-none text-white py-4 px-10 bg-indigo-700 rounded hover:bg-indigo-600 focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 focus:outline-none">SUBMIT</button>
+                          </div>
+                          <div class="flex justify-center pt-6">
+                              <a th:href="@{/login}" class="underline text-blue-500 font-bold">Already have an account?</a>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+    </main>
+</body>
+</html>

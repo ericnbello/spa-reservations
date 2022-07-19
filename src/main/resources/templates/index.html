@@ -1,0 +1,183 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout}">
+    <head>
+        <title th:text="#{index.headline}" />
+    </head>
+    <body>
+        <main layout:fragment="content">
+            <div class="w-full min-h-screen px-6 flex items-center justify-center bg-cover" style="background-image: url('https://images.unsplash.com/photo-1596984358985-bf4b2faba9e0?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=1080&ixid=MnwxfDB8MXxyYW5kb218MHx8cG9vbHx8fHx8fDE2NTgxNjExNDk&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1920');">
+<!--                <div class="h-full w-full inset-0 bg-gradient-to-b from-black to-transparent opacity-30"></div>-->
+                <div class="z-10 text-center px-12">
+                    <h1 th:text="#{index.headline}" class="max-w-lg xl:max-w-2xl mx-auto grow text-7xl md:text-8xl font-medium mb-8 font-black leading-normal text-white font-display" />
+                    <div class="max-w-sm lg:max-w-md mx-auto mt-8 text-white text-sm lg:text-base lg:leading-loose tracking-wide">
+<!--                        <p th:utext="#{index.text}" class="mb-4" />-->
+                        <a th:href="@{/register}" class="inline-block border-2 border-white text-white text-sm tracking-widest font-heading px-8 py-4 mt-4">Register  today</a>
+                        <a th:href="@{/reservation}" class="inline-block border-2 border-white text-white text-sm tracking-widest font-heading px-8 py-4 mt-4">Book reservation</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container mx-auto px-6 flex flex-wrap items-center py-24">
+                <div class="w-full lg:flex-1">
+<!--                        <div class="uppercase text-sm text-gray-700 tracking-widest">Why Luxe Spa?</div>-->
+                    <h2 class="text-3xl md:text-4xl font-semibold font-display mt-3">A curated combination of art and <span class="text-blue-500">wellbeing</span></h2>
+                </div>
+                <div class="w-full lg:w-auto text-center">
+                    <svg class="inline-block w-32 h-32 -mb-10 -mt-4 lg:mt-0 lg:mb-0 lg:transform lg:rotate-90 lg:-ml-8" x="0px" y="0px" viewBox="0 0 100 125">
+                        <path d="M91.8 45c-3.9 0-5.9 2.3-7.7 4.3-1.7 2-3.2 3.7-6.2 3.7s-4.5-1.7-6.2-3.7C70 47.3 68 45 64 45c-3.9 0-5.9 2.3-7.7 4.3-1.7 2-3.2 3.7-6.2 3.7s-4.5-1.7-6.2-3.7c-1.8-2-3.8-4.3-7.7-4.3-3.9 0-5.9 2.3-7.7 4.3-1.7 2-3.2 3.7-6.2 3.7s-4.5-1.7-6.2-3.7c-1.8-2-3.8-4.3-7.7-4.3-.6 0-1 .4-1 1s.4 1 1 1c3 0 4.5 1.7 6.2 3.7 1.8 2 3.8 4.3 7.7 4.3 3.9 0 5.9-2.3 7.7-4.3 1.7-2 3.2-3.7 6.2-3.7s4.5 1.7 6.2 3.7c1.8 2 3.8 4.3 7.7 4.3 3.9 0 5.9-2.3 7.7-4.3 1.7-2 3.2-3.7 6.2-3.7s4.5 1.7 6.2 3.7c1.8 2 3.8 4.3 7.7 4.3 3.9 0 5.9-2.3 7.7-4.3 1.7-2 3.2-3.7 6.2-3.7.6 0 1-.4 1-1s-.4-1-1-1z"/>
+                    </svg>
+                </div>
+                <div class="w-full lg:flex-1">
+                    <p>We created Luxe Spa to help our clients rest and recharge in an environment that is
+                        thoughtfully designed. Our modern and best in class facilities will have you living your best self in no time.</p>
+<!--                        <a href="#" class="inline-block bg-blue-200 text-white text-sm tracking-widest font-heading px-8 py-4 mt-4">Learn more</a>-->
+                </div>
+            </div>
+
+            <div class="p-4 grid grid-cols-1 md:grid-cols-5 grid-rows-2 gap-4 md:h-screen">
+                <a href="#" class="relative block bg-black text-white md:col-span-2">
+                    <img src="https://images.unsplash.com/photo-1617182726501-1f5f7b05a68f?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=1080&ixid=MnwxfDB8MXxyYW5kb218MHx8c3BhfHx8fHx8MTY1NzcyNTg0NQ&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1920" class="absolute inset-0 w-full h-full object-cover opacity-75">
+                </a>
+                <a href="#" class="relative block bg-black text-white md:col-span-3 lg:col-span-1">
+                    <img src="https://images.unsplash.com/photo-1596971041407-9897149951bb?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=1080&ixid=MnwxfDB8MXxyYW5kb218MHx8c3BhfHx8fHx8MTY1ODE1NTMyMA&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1920" class="absolute inset-0 w-full h-full object-cover opacity-75">
+                </a>
+                <a href="#" class="relative block bg-black text-white md:col-span-3 lg:col-span-2 lg:row-span-2">
+                    <img src="https://images.unsplash.com/photo-1583417267826-aebc4d1542e1?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=1080&ixid=MnwxfDB8MXxyYW5kb218MHx8c3RlYW1yb29tfHx8fHx8MTY1ODE2MTEwMw&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1920" class="absolute inset-0 w-full h-full object-cover opacity-75">
+                </a>
+                <a href="#" class="relative block bg-black text-white md:col-span-2 lg:col-span-1">
+                    <img src="https://images.unsplash.com/photo-1569383971623-393054ce65c8?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=1080&ixid=MnwxfDB8MXxyYW5kb218MHx8c3BhfHx8fHx8MTY1NzczOTExNQ&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1920" class="absolute inset-0 w-full h-full object-cover opacity-75">
+                </a>
+                <a href="#" class="relative block bg-black text-white md:col-span-5 lg:col-span-2">
+                    <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=1080&ixid=MnwxfDB8MXxyYW5kb218MHx8Z3ltfHx8fHx8MTY1ODE2MDQ2NQ&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1920" class="absolute inset-0 w-full h-full object-cover opacity-75">
+                </a>
+            </div>
+
+            <div class="p-4 grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-4 md:h-screen">
+                <div class="text-gray-700 text-center md:col-span-2 flex items-center justify-center">
+                    <div class="relative z-10 p-12">
+                        <div class="uppercase text-sm text-gray-700 tracking-widest">Keep Active</div>
+                        <h3 class="font-display font-semibold text-3xl mt-2">Fitness</h3>
+                        <p class="mt-3 mx-auto max-w-md">From group classes to swimming in our pool to lifting in our state-of-the-art gym, exercise is key to maintaining a happy, healthy life.</p>
+                        <a sec:authorize="isAnonymous()"
+                           class="inline-block bg-blue-200 text-white text-sm tracking-widest font-heading px-8 py-4 mt-6" th:href="@{/register}">Sign up</a>
+                        <a sec:authorize="isAuthenticated()"
+                           class="inline-block bg-blue-200 text-white text-sm tracking-widest font-heading px-8 py-4 mt-6" th:href="@{/reservations}">Book now</a>
+                    </div>
+                </div>
+                <div class="h-64 md:h-auto md:col-span-2 md:row-span-2 relative">
+                    <img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=1080&ixid=MnwxfDB8MXxyYW5kb218MHx8Zml0bmVzc3x8fHx8fDE2NTc5MzU3OTg&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1920" class="absolute inset-0 w-full h-full object-cover">
+                </div>
+                <div class="h-64 md:h-auto col-span-1 row-span-1 relative">
+                    <img src="https://images.unsplash.com/photo-1600026453346-a44501602a02?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=1080&ixid=MnwxfDB8MXxyYW5kb218MHx8Z3ltfHx8fHx8MTY1ODE1NTUwMg&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1920" class="absolute inset-0 w-full h-full object-cover">
+                </div>
+                <div class="h-64 md:h-auto col-span-1 row-span-1 relative">
+                    <img src="https://images.unsplash.com/photo-1597076537061-a6b58163aa45?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=1080&ixid=MnwxfDB8MXxyYW5kb218MHx8Z3ltfHx8fHx8MTY1ODE1NTU4OA&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1920" class="absolute inset-0 w-full h-full object-cover">
+                </div>
+            </div>
+
+            <div class="container mx-auto px-6 py-12">
+                <h2 class="font-display font-semibold text-3xl">Testimonials</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-24 mt-12">
+                    <div class="relative">
+                        <p class="relative z-10 text-justify">Loved the ambience of the place. The service was great. Will visit again and again!</p>
+                        <div class="relative z-10 text-sm flex items-center justify-end">
+                            <svg class="inline-block w-32 h-32 -mb-8" x="0px" y="0px" viewBox="0 0 100 125">
+                                <path d="M91.8 45c-3.9 0-5.9 2.3-7.7 4.3-1.7 2-3.2 3.7-6.2 3.7s-4.5-1.7-6.2-3.7C70 47.3 68 45 64 45c-3.9 0-5.9 2.3-7.7 4.3-1.7 2-3.2 3.7-6.2 3.7s-4.5-1.7-6.2-3.7c-1.8-2-3.8-4.3-7.7-4.3-3.9 0-5.9 2.3-7.7 4.3-1.7 2-3.2 3.7-6.2 3.7s-4.5-1.7-6.2-3.7c-1.8-2-3.8-4.3-7.7-4.3-.6 0-1 .4-1 1s.4 1 1 1c3 0 4.5 1.7 6.2 3.7 1.8 2 3.8 4.3 7.7 4.3 3.9 0 5.9-2.3 7.7-4.3 1.7-2 3.2-3.7 6.2-3.7s4.5 1.7 6.2 3.7c1.8 2 3.8 4.3 7.7 4.3 3.9 0 5.9-2.3 7.7-4.3 1.7-2 3.2-3.7 6.2-3.7s4.5 1.7 6.2 3.7c1.8 2 3.8 4.3 7.7 4.3 3.9 0 5.9-2.3 7.7-4.3 1.7-2 3.2-3.7 6.2-3.7.6 0 1-.4 1-1s-.4-1-1-1z"/>
+                            </svg>
+                            <span>Courtney S.</span>
+                        </div>
+                        <svg class="absolute top-0 left-0 w-28 h-28 -mt-10 -ml-8 opacity-5" viewBox="0 0 95.333 95.332">
+                            <path d="M30.512,43.939c-2.348-0.676-4.696-1.019-6.98-1.019c-3.527,0-6.47,0.806-8.752,1.793
+                                            c2.2-8.054,7.485-21.951,18.013-23.516c0.975-0.145,1.774-0.85,2.04-1.799l2.301-8.23c0.194-0.696,0.079-1.441-0.318-2.045
+                                            s-1.035-1.007-1.75-1.105c-0.777-0.106-1.569-0.16-2.354-0.16c-12.637,0-25.152,13.19-30.433,32.076
+                                            c-3.1,11.08-4.009,27.738,3.627,38.223c4.273,5.867,10.507,9,18.529,9.313c0.033,0.001,0.065,0.002,0.098,0.002
+                                            c9.898,0,18.675-6.666,21.345-16.209c1.595-5.705,0.874-11.688-2.032-16.851C40.971,49.307,36.236,45.586,30.512,43.939z"/>
+                            <path d="M92.471,54.413c-2.875-5.106-7.61-8.827-13.334-10.474c-2.348-0.676-4.696-1.019-6.979-1.019
+                                            c-3.527,0-6.471,0.806-8.753,1.793c2.2-8.054,7.485-21.951,18.014-23.516c0.975-0.145,1.773-0.85,2.04-1.799l2.301-8.23
+                                            c0.194-0.696,0.079-1.441-0.318-2.045c-0.396-0.604-1.034-1.007-1.75-1.105c-0.776-0.106-1.568-0.16-2.354-0.16
+                                            c-12.637,0-25.152,13.19-30.434,32.076c-3.099,11.08-4.008,27.738,3.629,38.225c4.272,5.866,10.507,9,18.528,9.312
+                                            c0.033,0.001,0.065,0.002,0.099,0.002c9.897,0,18.675-6.666,21.345-16.209C96.098,65.559,95.376,59.575,92.471,54.413z"/>
+                        </svg>
+                    </div>
+                    <div class="relative">
+                        <p class="relative z-10 text-justify">My favorite spa! The staff is amazing, they’re nice, professional, and very punctual. </p>
+                        <div class="relative z-10 text-sm flex items-center justify-end">
+                            <svg class="inline-block w-32 h-32 -mb-8" x="0px" y="0px" viewBox="0 0 100 125">
+                                <path d="M91.8 45c-3.9 0-5.9 2.3-7.7 4.3-1.7 2-3.2 3.7-6.2 3.7s-4.5-1.7-6.2-3.7C70 47.3 68 45 64 45c-3.9 0-5.9 2.3-7.7 4.3-1.7 2-3.2 3.7-6.2 3.7s-4.5-1.7-6.2-3.7c-1.8-2-3.8-4.3-7.7-4.3-3.9 0-5.9 2.3-7.7 4.3-1.7 2-3.2 3.7-6.2 3.7s-4.5-1.7-6.2-3.7c-1.8-2-3.8-4.3-7.7-4.3-.6 0-1 .4-1 1s.4 1 1 1c3 0 4.5 1.7 6.2 3.7 1.8 2 3.8 4.3 7.7 4.3 3.9 0 5.9-2.3 7.7-4.3 1.7-2 3.2-3.7 6.2-3.7s4.5 1.7 6.2 3.7c1.8 2 3.8 4.3 7.7 4.3 3.9 0 5.9-2.3 7.7-4.3 1.7-2 3.2-3.7 6.2-3.7s4.5 1.7 6.2 3.7c1.8 2 3.8 4.3 7.7 4.3 3.9 0 5.9-2.3 7.7-4.3 1.7-2 3.2-3.7 6.2-3.7.6 0 1-.4 1-1s-.4-1-1-1z"/>
+                            </svg>
+                            <span>Jake B.</span>
+                        </div>
+                        <svg class="absolute top-0 left-0 w-28 h-28 -mt-10 -ml-8 opacity-5" viewBox="0 0 95.333 95.332">
+                            <path d="M30.512,43.939c-2.348-0.676-4.696-1.019-6.98-1.019c-3.527,0-6.47,0.806-8.752,1.793
+                                            c2.2-8.054,7.485-21.951,18.013-23.516c0.975-0.145,1.774-0.85,2.04-1.799l2.301-8.23c0.194-0.696,0.079-1.441-0.318-2.045
+                                            s-1.035-1.007-1.75-1.105c-0.777-0.106-1.569-0.16-2.354-0.16c-12.637,0-25.152,13.19-30.433,32.076
+                                            c-3.1,11.08-4.009,27.738,3.627,38.223c4.273,5.867,10.507,9,18.529,9.313c0.033,0.001,0.065,0.002,0.098,0.002
+                                            c9.898,0,18.675-6.666,21.345-16.209c1.595-5.705,0.874-11.688-2.032-16.851C40.971,49.307,36.236,45.586,30.512,43.939z"/>
+                            <path d="M92.471,54.413c-2.875-5.106-7.61-8.827-13.334-10.474c-2.348-0.676-4.696-1.019-6.979-1.019
+                                            c-3.527,0-6.471,0.806-8.753,1.793c2.2-8.054,7.485-21.951,18.014-23.516c0.975-0.145,1.773-0.85,2.04-1.799l2.301-8.23
+                                            c0.194-0.696,0.079-1.441-0.318-2.045c-0.396-0.604-1.034-1.007-1.75-1.105c-0.776-0.106-1.568-0.16-2.354-0.16
+                                            c-12.637,0-25.152,13.19-30.434,32.076c-3.099,11.08-4.008,27.738,3.629,38.225c4.272,5.866,10.507,9,18.528,9.312
+                                            c0.033,0.001,0.065,0.002,0.099,0.002c9.897,0,18.675-6.666,21.345-16.209C96.098,65.559,95.376,59.575,92.471,54.413z"/>
+                        </svg>
+                    </div>
+                    <div class="relative">
+                        <p class="relative z-10 text-justify">"Amazing! Everytime I come here it honestly gets better and better! Thank you"
+                        </p>
+                        <div class="relative z-10 text-sm flex items-center justify-end">
+                            <svg class="inline-block w-32 h-32 -mb-8" x="0px" y="0px" viewBox="0 0 100 125">
+                                <path d="M91.8 45c-3.9 0-5.9 2.3-7.7 4.3-1.7 2-3.2 3.7-6.2 3.7s-4.5-1.7-6.2-3.7C70 47.3 68 45 64 45c-3.9 0-5.9 2.3-7.7 4.3-1.7 2-3.2 3.7-6.2 3.7s-4.5-1.7-6.2-3.7c-1.8-2-3.8-4.3-7.7-4.3-3.9 0-5.9 2.3-7.7 4.3-1.7 2-3.2 3.7-6.2 3.7s-4.5-1.7-6.2-3.7c-1.8-2-3.8-4.3-7.7-4.3-.6 0-1 .4-1 1s.4 1 1 1c3 0 4.5 1.7 6.2 3.7 1.8 2 3.8 4.3 7.7 4.3 3.9 0 5.9-2.3 7.7-4.3 1.7-2 3.2-3.7 6.2-3.7s4.5 1.7 6.2 3.7c1.8 2 3.8 4.3 7.7 4.3 3.9 0 5.9-2.3 7.7-4.3 1.7-2 3.2-3.7 6.2-3.7s4.5 1.7 6.2 3.7c1.8 2 3.8 4.3 7.7 4.3 3.9 0 5.9-2.3 7.7-4.3 1.7-2 3.2-3.7 6.2-3.7.6 0 1-.4 1-1s-.4-1-1-1z"/>
+                            </svg>
+                            <span>Jessica L.</span>
+                        </div>
+                        <svg class="absolute top-0 left-0 w-28 h-28 -mt-10 -ml-8 opacity-5" viewBox="0 0 95.333 95.332">
+                            <path d="M30.512,43.939c-2.348-0.676-4.696-1.019-6.98-1.019c-3.527,0-6.47,0.806-8.752,1.793
+                                            c2.2-8.054,7.485-21.951,18.013-23.516c0.975-0.145,1.774-0.85,2.04-1.799l2.301-8.23c0.194-0.696,0.079-1.441-0.318-2.045
+                                            s-1.035-1.007-1.75-1.105c-0.777-0.106-1.569-0.16-2.354-0.16c-12.637,0-25.152,13.19-30.433,32.076
+                                            c-3.1,11.08-4.009,27.738,3.627,38.223c4.273,5.867,10.507,9,18.529,9.313c0.033,0.001,0.065,0.002,0.098,0.002
+                                            c9.898,0,18.675-6.666,21.345-16.209c1.595-5.705,0.874-11.688-2.032-16.851C40.971,49.307,36.236,45.586,30.512,43.939z"/>
+                            <path d="M92.471,54.413c-2.875-5.106-7.61-8.827-13.334-10.474c-2.348-0.676-4.696-1.019-6.979-1.019
+                                            c-3.527,0-6.471,0.806-8.753,1.793c2.2-8.054,7.485-21.951,18.014-23.516c0.975-0.145,1.773-0.85,2.04-1.799l2.301-8.23
+                                            c0.194-0.696,0.079-1.441-0.318-2.045c-0.396-0.604-1.034-1.007-1.75-1.105c-0.776-0.106-1.568-0.16-2.354-0.16
+                                            c-12.637,0-25.152,13.19-30.434,32.076c-3.099,11.08-4.008,27.738,3.629,38.225c4.272,5.866,10.507,9,18.528,9.312
+                                            c0.033,0.001,0.065,0.002,0.099,0.002c9.897,0,18.675-6.666,21.345-16.209C96.098,65.559,95.376,59.575,92.471,54.413z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-4 grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-4 md:h-screen">
+                <div class="h-64 md:h-auto md:col-span-2 md:row-span-2 relative">
+                    <img src="https://images.unsplash.com/photo-1636717970103-da4e0e875c95?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=1080&ixid=MnwxfDB8MXxyYW5kb218MHx8bWFzc2FnZXx8fHx8fDE2NTgxNjE2NjU&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1920" class="absolute inset-0 w-full h-full object-cover">
+                </div>
+                <div class="text-gray-700 text-center md:col-span-2 flex items-center justify-center">
+                    <div class="relative z-10 p-12">
+                        <div class="uppercase text-sm text-gray-700 tracking-widest">Rejuvenate</div>
+                        <h3 class="font-display font-semibold text-3xl mt-2">Relaxation</h3>
+                        <p class="mt-3 mx-auto max-w-md">Unwind and detox for long run with a session in the sauna or one of our world-class masseuses.</p>
+                        <a sec:authorize="isAnonymous()"
+                           class="inline-block bg-blue-200 text-white text-sm tracking-widest font-heading px-8 py-4 mt-6" th:href="@{/register}">Sign up</a>
+                        <a sec:authorize="isAuthenticated()"
+                           class="inline-block bg-blue-200 text-white text-sm tracking-widest font-heading px-8 py-4 mt-6" th:href="@{/reservations}">Book now</a>                            </div>
+                </div>
+                <div class="h-64 md:h-auto col-span-1 row-span-1 relative">
+                    <img src="https://images.unsplash.com/photo-1517498327491-f903e1e281cd?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=1080&ixid=MnwxfDB8MXxyYW5kb218MHx8c3BhfHx8fHx8MTY1NzcyODA1NQ&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1920" class="absolute inset-0 w-full h-full object-cover">
+                </div>
+                <div class="h-64 md:h-auto col-span-1 row-span-1 relative">
+                    <img src="https://images.unsplash.com/photo-1654781393596-a058b9e6f4d6?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=1080&ixid=MnwxfDB8MXxyYW5kb218MHx8c2F1bmF8fHx8fHwxNjU4MTU1Mzk0&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1920" class="absolute inset-0 w-full h-full object-cover">
+                </div>
+            </div>
+
+            <div class="w-full py-12 px-6 flex items-center justify-center text-black">
+                <div class="z-10 text-center px-12">
+                    <h2 class="max-w-lg xl:max-w-2xl mx-auto grow text-2xl md:text-3xl font-medium mb-8 leading-normal">Interested in learning more?</h2>
+                    <div class="max-w-sm lg:max-w-md mx-auto mt-8 text-sm lg:text-base lg:leading-loose tracking-wide">
+<!--                        <p th:utext="#{index.text}" class="mb-4" />-->
+                        <a th:href="@{/about}" class="inline-block bg-blue-200 text-white text-sm tracking-widest px-8 py-4 mt-4">Learn more</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>
