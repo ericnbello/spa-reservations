@@ -17,7 +17,7 @@
               <div class="flex items-center justify-center my-12">
                   <div class="w-full bg-white dark:bg-gray-800 shadow rounded py-12 lg:px-28 px-8">
                       <p th:utext="#{register.form-text}" class="md:text-2xl text-xl font-bold leading-7 text-center text-gray-700 dark:text-white" />
-                      <form action="/" th:object="${user}" method="POST" enctype="utf8">
+                      <form action="#" th:action="@{/register}" th:object="${user}" method="POST" enctype="utf8">
                           <div class="items-center mt-12">
                               <div class="flex flex-col">
                                   <label class="text-base font-semibold leading-none text-gray-800 dark:text-white">Name</label>

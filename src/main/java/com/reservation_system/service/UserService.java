@@ -1,10 +1,14 @@
 package com.reservation_system.service;
 
+import com.reservation_system.exception.UserAlreadyExistException;
 import com.reservation_system.model.User;
 import com.reservation_system.repos.UserRepository;
 import java.util.List;
 
+import org.springframework.beans.BeanUtils;
+import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -18,6 +22,11 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
+    @Bean
+    public BCryptPasswordEncoder bCryptPasswordEncoder() {
+        return new BCryptPasswordEncoder();
+    };
+
     public List<User> findAll() {
         return userRepository.findAll();
     }
@@ -28,6 +37,7 @@ public class UserService {
     }
 
     public Long create(final User user) {
+        user.setPasswordHash(bCryptPasswordEncoder().encode(user.getPwHash()));
         return userRepository.save(user).getId();
     }
 
@@ -45,4 +55,30 @@ public class UserService {
     public User getUserByUsername(String username) {
         return userRepository.findUserByUsername(username);
     }
+
+    public User getUserByEmail(String email) {
+        return userRepository.findUserByEmail(email);
+    }
+
+//    @Override
+//    public void register(User user) throws UserAlreadyExistException {
+//
+//        //Let's check if user already registered with us
+//        if(getUserByEmail(user.getEmail()).equals(user.getEmail())){
+//            throw new UserAlreadyExistException("User already exists for this email");
+//        }
+//        User userEntity = new User();
+//        BeanUtils.copyProperties(user, userEntity);
+////        encodePassword(userEntity, user);
+//        userRepository.save(userEntity);
+//    }
+
+//    @Override
+//    public boolean checkIfUserExist(String email) {
+//        return userRepository.findUserByEmail(email) !=null ? true : false;
+//    }
+
+//    private void encodePassword( UserEntity userEntity, UserData user){
+//        userEntity.setPassword(passwordEncoder.encode(user.getPassword()));
+//    }
 }

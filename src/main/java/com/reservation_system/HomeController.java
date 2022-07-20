@@ -1,21 +1,26 @@
 package com.reservation_system;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.reservation_system.exception.UserAlreadyExistException;
 import com.reservation_system.model.Reservation;
 import com.reservation_system.model.User;
 import com.reservation_system.service.ReservationService;
 import com.reservation_system.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.WebRequest;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -24,7 +29,6 @@ import java.util.Set;
 @Controller
 public class HomeController {
 
-//    private Map<String, LocalDateTime> usersLastAccess = new HashMap<>();
     final UserService userService;
     final ReservationService reservationService;
 
@@ -37,21 +41,6 @@ public class HomeController {
     public String index() {
         return "index";
     }
-
-//    @GetMapping("/reservations")
-//    public String getCurrentUser(@AuthenticationPrincipal OidcUser user, Model model) {
-//        String email = user.getEmail();
-//
-//        model.addAttribute("email", email);
-//        ObjectNode usersLastAccess = null;
-//        model.addAttribute("lastAccess", usersLastAccess.get(email));
-//        model.addAttribute("firstName", user.getGivenName());
-//        model.addAttribute("lastName", user.getFamilyName());
-//
-//        usersLastAccess.put(email, String.valueOf(LocalDateTime.now()));
-//
-//        return "reservations";
-//    }
 
     @GetMapping("/reservations")
     public String reservations(Model model, HttpSession session) {
@@ -93,22 +82,29 @@ public class HomeController {
         return "about";
     }
 
-//    @GetMapping("/register")
-//    public String showRegistrationForm(Model model) {
-//        model.addAttribute("user", new User());
-//
-//        return "registration";
-//    }
-
     @GetMapping("/contact")
     public String contact() {
         return "contact";
     }
 
     @GetMapping("/register")
-    public String showRegistrationForm(WebRequest request, Model model) {
-        User user = new User();
-        model.addAttribute("user", user);
+    public String register(WebRequest request, final Model model){
+        model.addAttribute("user", new User());
         return "registration";
+    }
+
+    @PostMapping("/register")
+    public String userRegistration(final @Valid User user, final BindingResult bindingResult, final Model model) throws UserAlreadyExistException {
+        if(bindingResult.hasErrors()){
+            model.addAttribute("registrationForm", user);
+            return "registration";
+        }
+        userService.create(user);
+        return "redirect:/welcome";
+    }
+
+    @GetMapping("/welcome")
+    public String welcome() {
+        return "welcome";
     }
 }

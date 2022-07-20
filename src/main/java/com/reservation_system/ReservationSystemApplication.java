@@ -39,23 +39,23 @@ public class ReservationSystemApplication {
         SpringApplication.run(ReservationSystemApplication.class, args);
     }
 
-    @Bean
-    public CommandLineRunner loadData(
-            UserRepository userRepository,
-            CapacityRepository capacityRepository) {
-        return (args) -> {
-            userRepository.save(
-                    new User("Eric Bello", "ebello", "ebello@protonmail.com", bCryptPasswordEncoder().encode("12345")));
+//    @Bean
+//    public CommandLineRunner loadData(
+//            UserRepository userRepository,
+//            CapacityRepository capacityRepository) {
+//        return (args) -> {
+//            userRepository.save(
+//                    new User("Eric Bello", "ebello", "ebello@protonmail.com", bCryptPasswordEncoder().encode("12345")));
+//
+//            for (AmenityType amenityType : initialCapacities.keySet()) {
+//                capacityRepository.save(new Capacity(amenityType, initialCapacities.get(amenityType)));
+//            }
+//        };
+//    }
 
-            for (AmenityType amenityType : initialCapacities.keySet()) {
-                capacityRepository.save(new Capacity(amenityType, initialCapacities.get(amenityType)));
-            }
-        };
-    }
-
-    @Bean
-    public BCryptPasswordEncoder bCryptPasswordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+//    @Bean
+//    public BCryptPasswordEncoder bCryptPasswordEncoder() {
+//        return new BCryptPasswordEncoder();
+//    }
 
 };
