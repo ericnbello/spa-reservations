@@ -1,21 +1,15 @@
 import 'css/app.css';
 
-
-
-
 //function toggleNav() {
+//  var navbarToggleButton = document.getElementById('navbarToggleButton'),
 //
 //  navbarToggleButton.addEventListener("click", function() {
-//    const navToggle = document.getElementById("navbarToggle");
-//    if (navToggle.style.display === "block") {
-//            navToggle.style.display = "none";
+//    const navToggle = document.getElementById("navbarMenu");
+//    if (navToggle.style.display === "hidden") {
+//            navToggle.classList.toggle = "block";
 //        } else {
-//            navToggle.style.display = "block";
+//            navToggle.classList.toggle = "hidden";
 //        }
 //    }
 //  }
 //}
-//
-//function toggle() {
-//        navToggle.classList.toggle("block");
-//    }

@@ -59,26 +59,4 @@ public class UserService {
     public User getUserByEmail(String email) {
         return userRepository.findUserByEmail(email);
     }
-
-//    @Override
-//    public void register(User user) throws UserAlreadyExistException {
-//
-//        //Let's check if user already registered with us
-//        if(getUserByEmail(user.getEmail()).equals(user.getEmail())){
-//            throw new UserAlreadyExistException("User already exists for this email");
-//        }
-//        User userEntity = new User();
-//        BeanUtils.copyProperties(user, userEntity);
-////        encodePassword(userEntity, user);
-//        userRepository.save(userEntity);
-//    }
-
-//    @Override
-//    public boolean checkIfUserExist(String email) {
-//        return userRepository.findUserByEmail(email) !=null ? true : false;
-//    }
-
-//    private void encodePassword( UserEntity userEntity, UserData user){
-//        userEntity.setPassword(passwordEncoder.encode(user.getPassword()));
-//    }
 }
