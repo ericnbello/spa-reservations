@@ -33,7 +33,7 @@ jobs:
         run: |
           echo $PRIVATE_KEY > private_key.pem && chmod 400 private_key.pem
           ssh -i "private-key.pem" ${USER_NAME}@${HOSTNAME}
-            rm -rf /ubuntu/spa-reservations
+            rm -rf /$USER_NAME/spa-reservations
             git clone git@github.com:ericnbello/spa-reservations.git
             cd spa-reservations
             git checkout main
