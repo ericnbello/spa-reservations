@@ -16,7 +16,7 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID  }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-1
+          aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
 
       - name: Add github actions IP to security group
         env:
@@ -33,7 +33,7 @@ jobs:
         run: |
           echo "$PRIVATE_KEY" > private_key.pem && chmod 400 private_key.pem
           ssh -o StrictHostKeyChecking=no -i private_key.pem ${USER_NAME}@${HOSTNAME} '
-            rm -rf /$USER_NAME/spa-reservations
+            rm -rf /ubuntu/spa-reservations
             git clone git@github.com:ericnbello/spa-reservations.git
             cd spa-reservations
             git checkout main
