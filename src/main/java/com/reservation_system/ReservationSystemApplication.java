@@ -10,6 +10,8 @@ import com.reservation_system.repos.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
@@ -24,7 +26,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @SpringBootApplication
-public class ReservationSystemApplication {
+public class ReservationSystemApplication extends SpringBootServletInitializer {
 
     private Map<AmenityType, Integer> initialCapacities =
             new HashMap<>() {
@@ -39,6 +41,10 @@ public class ReservationSystemApplication {
         SpringApplication.run(ReservationSystemApplication.class, args);
     }
 
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+        return builder.sources(ReservationSystemApplication.class);
+    }
 //    @Bean
 //    public CommandLineRunner loadData(
 //            UserRepository userRepository,
