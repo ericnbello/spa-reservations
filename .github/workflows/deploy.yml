@@ -34,7 +34,7 @@ jobs:
           echo "$PRIVATE_KEY" > reservations_key.pem && chmod 600 reservations_key.pem
           ssh -o StrictHostKeyChecking=no -i reservations_key.pem ${USER_NAME}@${HOSTNAME} '
             rm -rf /home/ec2-user/spa-reservations
-            git clone spa-reservations.git
+            git clone git@github.com:ericnbello/spa-reservations.git
             cd spa-reservations
             git checkout main
             git pull origin main
