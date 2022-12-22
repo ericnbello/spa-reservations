@@ -53,21 +53,17 @@ jobs:
           HOSTNAME: ${{ secrets.HOSTNAME  }}
           USER_NAME: ${{ secrets.USERNAME  }}
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        run: |
-          echo "$PRIVATE_KEY" > private_key.pem && chmod 600 private_key.pem
-          ssh -o StrictHostKeyChecking=no -i "private_key.pem" ${USER_NAME}@${HOSTNAME} '
-            rm -rf /ec2-user/spa-reservations
-            git clone git@github.com:ericnbello/spa-reservations.git
-            cd spa-reservations
-            git checkout main
-            git pull origin main
-            sudo chmod +x ./deploy.sh
-            ./deploy.sh
-            rm -rf private_key.pem
-          '
-#      - name: Remove github actions IP from security group
-#        env:
-#          AWS_SECURITY_GROUP: ${{ secrets.AWS_SECURITY_GROUP }}
-#        run: |
-#          aws ec2 revoke-security-group-ingress --group-id ${{ env.AWS_SECURITY_GROUP }} --protocol tcp --port 22 --cidr ${{ steps.ip.outputs.ipv4 }}/16
-#        if: always()
+      - name: Configure SSH
+          run: |
+            mkdir -p ~/.ssh/
+            echo "$PRIVATE_KEY" > ~/.ssh/github-actions-key
+            chmod 600 ~/.ssh/github-actions-key
+            cat >>~/.ssh/config <<END
+            Host ec2
+              HostName $HOSTNAME
+              User $USER_NAME
+              IdentityFile ~/.ssh/github-actions-key
+              StrictHostKeyChecking no
+            END
+      - name: List home directory
+          run: ssh ec2 'ls -la'
