@@ -42,17 +42,17 @@ jobs:
           aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
 
       - name: Add github actions IP to security group
-          env:
-            AWS_SECURITY_GROUP: ${{ secrets.AWS_SECURITY_GROUP }}
+        env:
+          AWS_SECURITY_GROUP: ${{ secrets.AWS_SECURITY_GROUP }}
         run: |
           aws ec2 authorize-security-group-ingress --group-id ${{ env.AWS_SECURITY_GROUP }} --protocol tcp --port 22 --cidr ${{ steps.ip.outputs.ipv4 }}/16
           sleep 10
       - name: Deploy on AWS EC2
-          env:
-            PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY  }}
-            HOSTNAME: ${{ secrets.HOSTNAME  }}
-            USER_NAME: ${{ secrets.USERNAME  }}
-            ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+        env:
+          PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY  }}
+          HOSTNAME: ${{ secrets.HOSTNAME  }}
+          USER_NAME: ${{ secrets.USERNAME  }}
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         run: |
           echo "$PRIVATE_KEY" > private_key.pem && chmod 600 private_key.pem
           ssh -o StrictHostKeyChecking=no -i private_key.pem ${USER_NAME}@${HOSTNAME} '
