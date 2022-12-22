@@ -66,8 +66,8 @@ jobs:
             rm -rf private_key.pem
           '
       - name: Remove github actions IP from security group
-        env:
-          AWS_SECURITY_GROUP: ${{ secrets.AWS_SECURITY_GROUP }}
+          env:
+            AWS_SECURITY_GROUP: ${{ secrets.AWS_SECURITY_GROUP }}
         run: |
           aws ec2 revoke-security-group-ingress --group-id ${{ env.AWS_SECURITY_GROUP }} --protocol tcp --port 22 --cidr ${{ steps.ip.outputs.ipv4 }}/16
         if: always()
