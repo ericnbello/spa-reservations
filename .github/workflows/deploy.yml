@@ -17,7 +17,7 @@ jobs:
       - name: Build with Maven
         run: mvn clean install
       - name: Execute War File
-        run: sudo kill -9 `sudo lsof -t -i:8080` & sudo java -war /home/ubuntu/actions/_work/ericnbello/ericnbello/target/reservation-system-0.0.1-SNAPSHOT.war
+        run: sudo java -jar /home/ubuntu/actions/_work/ericnbello/ericnbello/target/reservation-system-0.0.1-SNAPSHOT.war
   deploy:
     runs-on: ubuntu-latest
     steps:
