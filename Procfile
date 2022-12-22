@@ -1,1 +1,0 @@
-web: java -Dserver.port=$PORT -jar target/reservation-system-0.0.1-SNAPSHOT.jar
