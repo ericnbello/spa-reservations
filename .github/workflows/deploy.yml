@@ -45,7 +45,7 @@ jobs:
         env:
           AWS_SECURITY_GROUP: ${{ secrets.AWS_SECURITY_GROUP }}
         run: |
-          aws ec2 authorize-security-group-ingress --group-id ${{ env.AWS_SECURITY_GROUP }} --protocol tcp --port 22 --cidr ${{ steps.ip.outputs.ipv4 }}/16
+          aws ec2 authorize-security-group-ingress --group-id ${{ env.AWS_SECURITY_GROUP }} --protocol tcp --port 22 --cidr ${{ steps.ip.outputs.ipv4 }}/0
           sleep 10
       - name: Deploy on AWS EC2
         env:
