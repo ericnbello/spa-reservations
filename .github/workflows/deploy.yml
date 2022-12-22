@@ -54,16 +54,16 @@ jobs:
           USER_NAME: ${{ secrets.USERNAME  }}
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
       - name: Configure SSH
-          run: |
-            mkdir -p ~/.ssh/
-            echo "$PRIVATE_KEY" > ~/.ssh/github-actions-key
-            chmod 600 ~/.ssh/github-actions-key
-            cat >>~/.ssh/config <<END
-            Host ec2
-              HostName $HOSTNAME
-              User $USER_NAME
-              IdentityFile ~/.ssh/github-actions-key
-              StrictHostKeyChecking no
-            END
+        run: |
+          mkdir -p ~/.ssh/
+          echo "$PRIVATE_KEY" > ~/.ssh/github-actions-key
+          chmod 600 ~/.ssh/github-actions-key
+          cat >>~/.ssh/config <<END
+          Host ec2
+            HostName $HOSTNAME
+            User $USER_NAME
+            IdentityFile ~/.ssh/github-actions-key
+            StrictHostKeyChecking no
+          END
       - name: List home directory
-          run: ssh ec2 'ls -la'
+        run: ssh ec2 'ls -la'
