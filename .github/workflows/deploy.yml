@@ -64,5 +64,5 @@ jobs:
           username: ${{ secrets.USER_NAME }}
           port: ${{ secrets.PORT }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: "/target/reservation-system-0.0.1-SNAPSHOT.war"
-          target: "ec2-user"
+          source: target/reservation-system-0.0.1-SNAPSHOT.war
+          target: "/home/ec2-user/"

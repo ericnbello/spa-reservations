@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Welcome</title>
+    <!--    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />-->
+    <!--    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>-->
+    <!--    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>-->
+</head>
+<body>
+<main layout:fragment="content">
+    <div class="w-full p-6 flex flex-col items-center justify-center bg-gradient-to-tl from-orange-200">
+        <h1 class="max-w-lg xl:max-w-2xl mx-auto grow text-4xl md:text-5xl font-medium mb-8 leading-normal text-black text-center">Welcome</h1>
+        <p class="mb-4">Please login to your new account below.</p>
+
+        <div class="flex items-center justify-center my-12">
+            <div class="w-full bg-white dark:bg-gray-800 shadow rounded py-12 lg:px-28 px-8">
+                <p class="md:text-2xl text-xl font-bold leading-7 text-center text-gray-700 dark:text-white" />
+
+                    <div class="flex justify-center pt-6">
+                        <a th:href="@{/login}" class="underline text-blue-500 font-bold">Login</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>
