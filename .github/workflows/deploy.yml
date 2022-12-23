@@ -57,5 +57,12 @@ jobs:
             IdentityFile ~/.ssh/github-actions-key
             StrictHostKeyChecking no
           END
-      - name: List home directory
-        run: ssh ec2 'ls -la'
+      - name: Copy war file via ssh key
+        uses: appleboy/scp-action@main
+        with:
+          host: ${{ secrets.HOSTNAME }}
+          username: ${{ secrets.USER_NAME }}
+#          port: ${{ secrets.PORT }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: "/target/reservation-system-0.0.1-SNAPSHOT.war"
+          target: "ec2-user"
