@@ -58,7 +58,7 @@ jobs:
             StrictHostKeyChecking no
           END
       - name: Copy war file via ssh key
-        uses: appleboy/scp-action@main
+        uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.HOSTNAME }}
           username: ${{ secrets.USER_NAME }}
