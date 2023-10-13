@@ -1,0 +1,1 @@
+web: java -jar target/reservation-system-0.0.1-SNAPSHOT.war
