@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -war target/reservation-system-0.0.1-SNAPSHOT.war -Dserver.port=$PORT
+web: java -jar target/reservation-system-0.0.1-SNAPSHOT.war -Dserver.port=$PORT
