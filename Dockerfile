@@ -6,10 +6,11 @@ COPY . /usr/src/app
 # Compile and package the application to an executable JAR
 RUN mvn clean package -DskipTests
 # Using java 11
-FROM openjdk:11-jdk
+FROM openjdk:17-jdk
 
 ARG JAR_FILE=/usr/src/app/target/*.jar
 # Copying JAR file
 COPY --from=maven ${JAR_FILE} app.jar
 
 ENTRYPOINT ["java","-jar","/app.jar"]
+EXPOSE 8080
