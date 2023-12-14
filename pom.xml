@@ -12,7 +12,7 @@
     <artifactId>reservation-system</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>reservation-system</name>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
 
     <properties>
         <java.version>17</java.version>
